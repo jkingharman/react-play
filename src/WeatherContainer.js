@@ -35,7 +35,7 @@ class WeatherContainer extends React.Component {
 	getWeather() {
    // refactor promise structure when writing for real request
   	let response = new Promise((resolve) => {
-    let url = "https://api.openweathermap.org/data/2.5/weather?q=London&APPID=d67b6ea31078ccea4bd77846d9569c02"
+    let url = "https://api.openweathermap.org/data/2.5/weather?q=" + this.state.currentLocation + "&APPID=d67b6ea31078ccea4bd77846d9569c02"
 
     resolve(fetch(url))
     });
