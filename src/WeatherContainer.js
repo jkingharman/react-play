@@ -44,8 +44,9 @@ class WeatherContainer extends React.Component {
   		res.json()
       	.then(json => {
           if (json.cod == "200") {
-          	console.log(json)
             this.setState({currentWeather: this.parseResponse(json)})
+          } else if (json.cod == "404") {
+            this.setState({currentWeather: {weather: "unknown", temp: "unknown"}})
           } else {
             console.log("error")
           }

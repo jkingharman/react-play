@@ -20,6 +20,7 @@ class WeatherImage extends React.Component {
     "11n": "https://via.placeholder.com/150",
     "13n": "https://via.placeholder.com/150",
     "50n": "https://via.placeholder.com/150",
+    "unknown": "https://via.placeholder.com/300"
   }
 
 
