@@ -26,7 +26,7 @@ class WeatherContainer extends React.Component {
 
   parseResponse(res) {
   	return {
-    	weather: res.weather[0].main,
+    	weather: res.weather[0].icon,
       temp: res.main.temp
     }
   }
