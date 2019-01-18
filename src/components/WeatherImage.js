@@ -7,6 +7,7 @@ class WeatherImage extends React.Component {
     "01d": "https://via.placeholder.com/150",
     "02d": "https://via.placeholder.com/150",
     "03d": "https://via.placeholder.com/150",
+    "04d": "https://via.placeholder.com/150",
     "09d": "https://via.placeholder.com/150",
     "10d": "https://via.placeholder.com/150",
     "11d": "https://via.placeholder.com/150",
@@ -15,6 +16,7 @@ class WeatherImage extends React.Component {
     "01n": "https://via.placeholder.com/150",
     "02n": "https://via.placeholder.com/150",
     "03n": "https://via.placeholder.com/150",
+    "04n": "https://via.placeholder.com/150",
     "09n": "https://via.placeholder.com/150",
     "10n": "https://via.placeholder.com/150",
     "11n": "https://via.placeholder.com/150",
@@ -23,11 +25,11 @@ class WeatherImage extends React.Component {
     "unknown": "https://via.placeholder.com/300"
   }
 
+     console.log(this.props.weather)
 
-
-   return (
+   return ( 
    <div className="gallery-container">
-     <img src={weatherMapping[this.props.weather["weather"]]}/>
+     <img src={weatherMapping[this.props.weather["weather"]]} alt="weather image"/>
      <h2> {this.props.weather["temp"]} </h2>
    </div>
    )
