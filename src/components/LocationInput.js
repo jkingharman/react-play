@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class LocationInput extends React.Component {
+class LocationInput extends Component {
   render() {
      return (
      	<form>

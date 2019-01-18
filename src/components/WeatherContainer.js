@@ -3,7 +3,7 @@ import WeatherImage from './WeatherImage';
 import LocationInput from './LocationInput';
 import LocationBtn from './LocationBtn';
 
-class WeatherContainer extends React.Component {
+class WeatherContainer extends Component {
 
 	constructor(props) {
   	super(props);

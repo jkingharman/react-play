@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class WeatherImage extends React.Component {
+class WeatherImage extends Component {
 
  render() {
  	let weatherMapping = {
