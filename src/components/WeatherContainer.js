@@ -7,7 +7,10 @@ class WeatherContainer extends Component {
 
 	constructor(props) {
   	super(props);
-  	this.state = {currentWeather: "", currentLocation: "London"};
+  	this.state = {
+			currentWeather: "",
+			currentLocation: "London"
+		};
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
@@ -21,7 +24,9 @@ class WeatherContainer extends Component {
   }
 
   handleChange(e) {
-  	this.setState({currentLocation: e.target.value})
+  	this.setState({
+			currentLocation: e.target.value
+		})
   }
 
 	toCelcius(kelvin) {
@@ -29,15 +34,24 @@ class WeatherContainer extends Component {
 	}
 
 	parseResponse(json) {
-		if (json.cod == "200") {
-			this.setState({currentWeather: {weather: json.weather[0].icon, temp: this.toCelcius(json.main.temp)}})
-		} else if (json.cod == "404") {
-			this.setState({currentWeather: {weather: "unknown", temp: "unknown"}})
+		if (json.cod === 200) {
+			this.setState({
+				currentWeather: {
+					weather: json.weather[0].icon,
+					temp: this.toCelcius(json.main.temp)
+				}
+			})
+		} else if (json.cod === 404) {
+			this.setState({
+				currentWeather: {
+					weather: "unknown",
+					temp: "unknown"
+				}
+			})
 		} else {
 			console.log("error")
 		}
 	}
-
 
 	getWeather() {
   	new Promise((resolve) => {
@@ -51,9 +65,9 @@ class WeatherContainer extends Component {
   render() {
    return (
    <div className="container">
-   <WeatherImage weather={this.state.currentWeather}/>
-   <LocationInput onChange={this.handleChange}/>
-   <LocationBtn onClick={this.handleClick}/>
+     <WeatherImage weather={this.state.currentWeather}/>
+     <LocationInput onChange={this.handleChange}/>
+     <LocationBtn onClick={this.handleClick}/>
    </div>
    )
   }
