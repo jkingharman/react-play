@@ -25,12 +25,10 @@ class WeatherImage extends React.Component {
     "unknown": "https://via.placeholder.com/300"
   }
 
-     console.log(this.props.weather)
-
    return ( 
    <div className="gallery-container">
      <img src={weatherMapping[this.props.weather["weather"]]} alt="weather image"/>
-     <h2> {this.props.weather["temp"]} </h2>
+     <h2> {this.props.weather["temp"]} °C </h2>
    </div>
    )
   }

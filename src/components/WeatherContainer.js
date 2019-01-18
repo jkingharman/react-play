@@ -27,9 +27,13 @@ class WeatherContainer extends React.Component {
   parseResponse(res) {
   	return {
     	weather: res.weather[0].icon,
-      temp: res.main.temp
+      temp: this.toCelcius(res.main.temp)
     }
   }
+
+	toCelcius(kelvin) {
+		return (kelvin - 273).toFixed()
+	}
 
 
 	getWeather() {
