@@ -54,9 +54,8 @@ class WeatherContainer extends Component {
 	}
 
 	getWeather() {
-  	new Promise((resolve) => {
-    	resolve(fetch("https://api.openweathermap.org/data/2.5/weather?q=" + this.state.currentLocation + "&APPID=d67b6ea31078ccea4bd77846d9569c02"))
-		}).then(res => {
+  	fetch("https://api.openweathermap.org/data/2.5/weather?q=" + this.state.currentLocation + "&APPID=d67b6ea31078ccea4bd77846d9569c02")
+			.then(res => {
   		res.json()
       	.then(this.parseResponse.bind(this))
     })
@@ -66,7 +65,7 @@ class WeatherContainer extends Component {
    return (
    <div className="container">
      <WeatherImage weather={this.state.currentWeather}/>
-     <LocationInput onChange={this.handleChange}/>
+     <LocationInput location={this.state.currentLocation} onChange={this.handleChange}/>
      <LocationBtn onClick={this.handleClick}/>
    </div>
    )
