@@ -42,7 +42,6 @@ class WeatherContainer extends Component {
         },
       });
     } else if (json.cod === "404") {
-      console.log("I run")
       this.setState({
         currentWeather: {
           weather: 'unknown',
