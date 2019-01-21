@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class LocationBtn extends Component {
   render() {
     return (
-      <button onClick={this.props.onClick} />
+      <button className='location-button' onClick={this.props.onClick}>
+        Go
+      </button>
     );
   }
 }

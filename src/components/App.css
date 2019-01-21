@@ -1,3 +1,34 @@
+
+input:focus {
+  outline: none;
+}
+
+button:focus {
+  outline: none
+}
+
+  button {
+  min-width: 50px;
+  font-family: 'Helvetica';
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #FA9FC0;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #FA9FC0;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #FA9FC0;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #FA9FC0;
+}
+
 .App {
   text-align: center;
 }
@@ -11,4 +42,24 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.gallery-container img {
+  max-width: 200px;
+}
+
+.location-input {
+  padding-bottom: 20px;
+}
+
+.location-input input {
+  border-width: 0px;
+  min-width: 200px;
+  min-height: 20px;
+  border-radius: 20px;
+  font-family: 'Helvetica';
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  color: #FA9FC0;
 }

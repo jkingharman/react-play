@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class LocationInput extends Component {
   render() {
     return (
-      <form>
-        <input type="text" onChange={this.props.onChange} />
+      <form className='location-input'>
+        <input placeholder="Enter city" type="text" onChange={this.props.onChange} />
       </form>
     );
   }
