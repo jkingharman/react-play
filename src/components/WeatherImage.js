@@ -1,28 +1,37 @@
 import React, { Component } from 'react';
-import sun from '../assets/1_sun.png'
-import sunCloud from '../assets/2_sun_cloud.png'
-import cloud from '../assets/3_cloud.png'
+
+function importAll(r) {
+  let images = {};
+  r.keys().forEach((item, index) => {
+    images[item.replace('./', '')] = r(item);
+  });
+  return images;
+}
+
+const images = importAll(require.context(
+  '../assets', false, /\.(png)$/
+));
 
 const WEATHERMAP = {
-  '01d': sun,
-  '02d': sunCloud,
-  '03d': cloud,
-  '04d': 'https://via.placeholder.com/150',
-  '09d': 'https://via.placeholder.com/150',
-  '10d': 'https://via.placeholder.com/150',
-  '11d': 'https://via.placeholder.com/150',
-  '13d': 'https://via.placeholder.com/150',
-  '50d': 'https://via.placeholder.com/150',
-  '01n': 'https://via.placeholder.com/150',
-  '02n': 'https://via.placeholder.com/150',
-  '03n': 'https://via.placeholder.com/150',
-  '04n': 'https://via.placeholder.com/150',
-  '09n': 'https://via.placeholder.com/150',
-  '10n': 'https://via.placeholder.com/150',
-  '11n': 'https://via.placeholder.com/150',
-  '13n': 'https://via.placeholder.com/150',
-  '50n': 'https://via.placeholder.com/150',
-  'unknown': 'https://via.placeholder.com/300',
+  '01d': images["1d.png"],
+  '02d': images["2d.png"],
+  '03d': images["3d.png"],
+  '04d': images["4d.png"],
+  '09d': images["9d.png"],
+  '10d': images["10d.png"],
+  '11d': images["11d.png"],
+  '13d': images["13d.png"],
+  '50d': images["50d.png"],
+  '01n': images["1n.png"],
+  '02n': images["2n.png"],
+  '03n': images["3n.png"],
+  '04n': images["4n.png"],
+  '09n': images["9n.png"],
+  '10n': images["10n.png"],
+  '11n': images["11n.png"],
+  '13n': images["13n.png"],
+  '50n': images["50n.png"],
+  'unknown': images["error.png"],
 };
 
 class WeatherImage extends Component {
@@ -31,10 +40,8 @@ class WeatherImage extends Component {
       <div className="gallery-container">
         <img src={WEATHERMAP[this.props.weather.weather]} alt="weather" />
         <h2>
-          {' '}
           {this.props.weather.temp}
-          {' '}
-°C
+          °C
         </h2>
       </div>
     );

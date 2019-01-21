@@ -41,7 +41,8 @@ class WeatherContainer extends Component {
           temp: this.toCelcius(json.main.temp),
         },
       });
-    } else if (json.cod === 404) {
+    } else if (json.cod === "404") {
+      console.log("I run")
       this.setState({
         currentWeather: {
           weather: 'unknown',
