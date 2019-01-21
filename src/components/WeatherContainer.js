@@ -6,7 +6,7 @@ import LocationBtn from './LocationBtn';
 class WeatherContainer extends Component {
 
 	constructor(props) {
-  	super(props);
+   	super(props);
   	this.state = {
 			currentWeather: "",
 			currentLocation: "London"
@@ -15,8 +15,9 @@ class WeatherContainer extends Component {
     this.handleClick = this.handleClick.bind(this)
   }
 
-	componentWillMount() {
+	componentDidMount() {
   	this.getWeather()
+		this.setState({currentLocation: "Bath"})
   }
 
   handleClick() {
@@ -56,8 +57,8 @@ class WeatherContainer extends Component {
 	getWeather() {
   	fetch("https://api.openweathermap.org/data/2.5/weather?q=" + this.state.currentLocation + "&APPID=d67b6ea31078ccea4bd77846d9569c02")
 			.then(res => {
-  		res.json()
-      	.then(this.parseResponse.bind(this))
+  			res.json()
+      		.then(this.parseResponse.bind(this))
     })
   };
 
