@@ -40,8 +40,9 @@ class WeatherImage extends Component {
       <div className="gallery-container">
         <img src={WEATHERMAP[this.props.weather.weather]} alt="weather" />
         <h2>
-          {this.props.weather.temp}
-          °C
+          {
+            this.props.weather.temp === "unknown" ? "Unknown city" : this.props.weather.temp + "°C"
+          }
         </h2>
       </div>
     );
