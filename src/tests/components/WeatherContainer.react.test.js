@@ -9,7 +9,9 @@ configure({ adapter: new Adapter() });
 
 function mockGetWeather() {
   fetch = jest.fn(() => new Promise((resolve) => {
-    resolve({ json: () => new Promise((resolve) => { resolve({ cod: 200, weather: [{ icon: '01d' }], main: { temp: 273 } }); }) });
+    resolve({ json: () => new Promise((resolve) => {
+      resolve({ cod: 200, weather: [{ icon: '01d' }], main: { temp: 273 } });
+    }) });
   }));
 }
 

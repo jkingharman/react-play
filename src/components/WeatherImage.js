@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import sun from '../assets/1_sun.png'
+import sunCloud from '../assets/2_sun_cloud.png'
+import cloud from '../assets/3_cloud.png'
 
 const WEATHERMAP = {
-  '01d': 'https://via.placeholder.com/150',
-  '02d': 'https://via.placeholder.com/150',
-  '03d': 'https://via.placeholder.com/150',
+  '01d': sun,
+  '02d': sunCloud,
+  '03d': cloud,
   '04d': 'https://via.placeholder.com/150',
   '09d': 'https://via.placeholder.com/150',
   '10d': 'https://via.placeholder.com/150',
