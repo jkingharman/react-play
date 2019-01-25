@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
-import WeatherImage from './WeatherImage';
-import LocationInput from './LocationInput';
-import LocationBtn from './LocationBtn';
+import React, { Component } from "react";
+import WeatherImage from "./WeatherImage";
+import LocationInput from "./LocationInput";
+import LocationBtn from "./LocationBtn";
 
 class WeatherContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentWeather: '',
-      currentLocation: 'London',
+      currentWeather: "",
+      currentLocation: "London"
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getWeather();
-    this.setState({ currentLocation: 'Bath' });
   }
 
   handleClick() {
@@ -25,7 +24,7 @@ class WeatherContainer extends Component {
 
   handleChange(e) {
     this.setState({
-      currentLocation: e.target.value,
+      currentLocation: e.target.value
     });
   }
 
@@ -38,34 +37,39 @@ class WeatherContainer extends Component {
       this.setState({
         currentWeather: {
           weather: json.weather[0].icon,
-          temp: this.toCelcius(json.main.temp),
-        },
+          temp: this.toCelcius(json.main.temp)
+        }
       });
     } else if (json.cod === "404") {
       this.setState({
         currentWeather: {
-          weather: 'unknown',
-          temp: 'unknown',
-        },
+          weather: "unknown",
+          temp: "unknown"
+        }
       });
     } else {
-      console.log('error');
+      console.log("error");
     }
   }
 
   getWeather() {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.currentLocation}&APPID=d67b6ea31078ccea4bd77846d9569c02`)
-      .then((res) => {
-        res.json()
-          .then(this.parseResponse.bind(this));
-      });
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${
+        this.state.currentLocation
+      }&APPID=d67b6ea31078ccea4bd77846d9569c02`
+    ).then(res => {
+      res.json().then(this.parseResponse.bind(this));
+    });
   }
 
   render() {
     return (
       <div className="container">
         <WeatherImage weather={this.state.currentWeather} />
-        <LocationInput location={this.state.currentLocation} onChange={this.handleChange} />
+        <LocationInput
+          location={this.state.currentLocation}
+          onChange={this.handleChange}
+        />
         <LocationBtn onClick={this.handleClick} />
       </div>
     );
